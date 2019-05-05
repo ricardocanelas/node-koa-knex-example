@@ -1,0 +1,11 @@
+.env
+*.sqlite3
+.DS_Store
+*/node_modules
+node_modules
+*.log*
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+NOTE*.md

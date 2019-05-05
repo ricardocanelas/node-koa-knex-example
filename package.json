@@ -1,0 +1,63 @@
+{
+  "name": "@ricardocanelas/node-koa-knex-example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon --exec babel-node src/index.js",
+    "validate": "npm run lint && npm run prettier -- --list-different",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint --fix",
+    "prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
+    "prettier:fix": "npm run prettier -- --write",
+    "db:seed": "knex seed:run",
+    "db:migrate": "npm run knex migrate:latest",
+    "db:rollback": "npm run knex migrate:rollback",
+    "db:currentVersion": "npm run knex migrate:currentVersion",
+    "knex": "node_modules/.bin/knex",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
+    "knex": "^0.16.5",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "objection": "^1.6.8",
+    "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "husky": "^2.1.0",
+    "jest": "^24.7.1",
+    "lint-staged": "^8.1.5",
+    "nodemon": "^1.19.0",
+    "prettier": "^1.17.0",
+    "supertest": "^4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run validate"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}": [
+        "prettier:fix",
+        "git add"
+      ],
+      "*.{js}": [
+        "lint:fix",
+        "git add"
+      ]
+    }
+  }
+}
