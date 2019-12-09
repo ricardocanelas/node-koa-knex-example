@@ -13,7 +13,6 @@ Simple RESTful API implementation on Node.js + Express + Knex + Sqlite + Objecti
 
 ## 👉🏻 Getting Started
 
-
 Clone the repo and use `yarn` to install dependecies
 
 ```bash
