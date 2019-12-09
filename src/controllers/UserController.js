@@ -16,16 +16,14 @@ class UserController {
       let data = null
       const body = ctx.request.body
       if (body.id) {
-        data = await User.query()
-          .update(null, body)
-          .where('id', body.id)
+        data = await User.query().patchAndFetchById(body.id, body)
       } else {
         data = await User.query().insert(body)
       }
 
       ctx.body = { data }
     } catch (err) {
-      ctx.body = { status: 'error' }
+      ctx.body = { status: 'error', message: err.message }
     }
   }
 }
