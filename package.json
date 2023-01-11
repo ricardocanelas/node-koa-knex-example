@@ -21,7 +21,7 @@
   "dependencies": {
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
-    "knex": "^0.20.4",
+    "knex": "^2.4.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^5.2.0",
